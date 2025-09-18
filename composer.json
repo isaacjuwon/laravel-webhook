@@ -1,17 +1,29 @@
 {
-    "name": ":vendor_slug/:package_slug",
-    "description": ":package_description",
+    "name": "isaacjuwon/laravel-webhook",
+    "description": "The most elegant and flexible Laravel webhook package with class-based architecture, automatic routing, and zero-config platform presets. Transform complex webhook integrations into simple, readable code.",
     "keywords": [
-        ":vendor_name",
         "laravel",
-        ":package_slug"
+        "webhook",
+        "webhooks",
+        "github",
+        "stripe",
+        "shopify",
+        "api",
+        "callbacks",
+        "integration",
+        "notifications",
+        "events",
+        "routing",
+        "signature-validation",
+        "class-based",
+        "fluent-api"
     ],
-    "homepage": "https://github.com/:vendor_slug/:package_slug",
+    "homepage": "https://github.com/isaacjuwon/laravel-webhook",
     "license": "MIT",
     "authors": [
         {
-            "name": ":author_name",
-            "email": "author@domain.com",
+            "name": "Isaac Juwon Gabriel",
+            "email": "isaacgabrieljuwon@gmail.com",
             "role": "Developer"
         }
     ],
@@ -35,13 +47,13 @@
     },
     "autoload": {
         "psr-4": {
-            "VendorName\\Skeleton\\": "src/",
-            "VendorName\\Skeleton\\Database\\Factories\\": "database/factories/"
+            "Isaacjuwon\\LaravelWebhook\\": "src/",
+            "Isaacjuwon\\LaravelWebhook\\Database\\Factories\\": "database/factories/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "VendorName\\Skeleton\\Tests\\": "tests/",
+            "Isaacjuwon\\LaravelWebhook\\Tests\\": "tests/",
             "Workbench\\App\\": "workbench/app/"
         }
     },
@@ -63,10 +75,10 @@
     "extra": {
         "laravel": {
             "providers": [
-                "VendorName\\Skeleton\\SkeletonServiceProvider"
+                "Isaacjuwon\\LaravelWebhook\\LaravelWebhookServiceProvider"
             ],
             "aliases": {
-                "Skeleton": "VendorName\\Skeleton\\Facades\\Skeleton"
+                "LaravelWebhook": "Isaacjuwon\\LaravelWebhook\\Facades\\LaravelWebhook"
             }
         }
     },
