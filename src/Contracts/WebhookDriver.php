@@ -3,7 +3,7 @@
 namespace Isaacjuwon\LaravelWebhook\Contracts;
 
 use Isaacjuwon\LaravelWebhook\Dto\WebhookDTO;
-use Isaacjuwon\LaravelWebhook\Abstracts\Webhook;
+use Isaacjuwon\LaravelWebhook\Abstracts\Webhook as AbstractWebhook;
 
 interface WebhookDriver
 {
@@ -13,7 +13,7 @@ interface WebhookDriver
      * @param Webhook $webhook The webhook to register
      * @return self
      */
-    public function registerWebhook(Webhook $webhook): self;
+    public function registerWebhook(AbstractWebhook $webhook): self;
 
     /**
      * Get all registered webhooks.
@@ -28,22 +28,9 @@ interface WebhookDriver
      * @param string $name The name of the webhook
      * @return Webhook The requested webhook
      */
-    public function getWebhook(string $name): Webhook;
+    public function getWebhook(string $name): AbstractWebhook;
 
-    /**
-     * Set a schema for structured output.
-     *
-     * @param array $schema JSON Schema defining the expected output structure.
-     * @return self
-     */
-    public function setResponseSchema(array $schema): self;
 
-    /**
-     * Get the current response schema.
-     *
-     * @return array|null The current response schema or null if not set.
-     */
-    public function getResponseSchema(): ?array;
 
     /**
      * Set configuration parameters for the webhook driver.
@@ -67,12 +54,7 @@ interface WebhookDriver
      */
     public function getLastResponse(): ?array;
 
-    /**
-     * Check if structured output is enabled.
-     *
-     * @return bool True if structured output is enabled, false otherwise.
-     */
-    public function structuredOutputEnabled(): bool;
+
 
     /**
      * Get the provider data merged with the model defined settings.
@@ -88,7 +70,7 @@ interface WebhookDriver
      * @param Webhook $webhook The webhook to format
      * @return WebhookDTO The formatted webhook data transfer object
      */
-    public function formatWebhookForPayload(Webhook $webhook): WebhookDTO;
+    public function formatWebhookForPayload(AbstractWebhook $webhook): WebhookDTO;
 
    
    }

@@ -3,7 +3,7 @@
 namespace Isaacjuwon\LaravelWebhook\Models;
 
 use Illuminate\Support\Collection;
-use Isaacjuwon\LaravelWebhook\Contracts\WebhookContract;
+use Isaacjuwon\LaravelWebhook\Contracts\Webhook as WebhookContract;
 use Isaacjuwon\LaravelWebhook\Exceptions\WebhookValidationException;
 
 class Webhook implements WebhookContract

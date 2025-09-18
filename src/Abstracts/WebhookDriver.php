@@ -2,16 +2,13 @@
 
 namespace Isaacjuwon\LaravelWebhook\Abstracts;
 
-use Isaacjuwon\LaravelWebhook\Contracts\Webhook as WebhookInterface;
-
+use Isaacjuwon\LaravelWebhook\Contracts\WebhookDriver as WebhookDriverInterface;
 use Isaacjuwon\LaravelWebhook\Dto\WebhookDTO;
 
 
-abstract class WebhookDriver implements WebhookInterface
+abstract class WebhookDriver implements WebhookDriverInterface
 {
     protected array $config = [];
-
-    protected ?array $responseSchema = null;
 
     protected mixed $lastResponse = null;
 
@@ -37,17 +34,7 @@ abstract class WebhookDriver implements WebhookInterface
         return $this->webhooks[$name];
     }
 
-    public function setResponseSchema(array $schema): self
-    {
-        $this->responseSchema = $schema;
 
-        return $this;
-    }
-
-    public function getResponseSchema(): ?array
-    {
-        return $this->responseSchema;
-    }
 
     public function setConfig(array $config): self
     {
@@ -71,10 +58,7 @@ abstract class WebhookDriver implements WebhookInterface
         return array_map(fn (Webhook $webhook) => $this->formatWebhookForPayload($webhook), $this->webhooks);
     }
 
-    public function structuredOutputEnabled(): bool
-    {
-        return ! empty($this->getResponseSchema());
-    }
+
 
     /**
      * Get the provider data merged with the model defined settings.
@@ -103,11 +87,10 @@ abstract class WebhookDriver implements WebhookInterface
         // Extract basic webhook information
         $name = $webhook->getName();
         $properties = $webhook->getProperties();
-        $required = $webhook->getRequired();
         $storeHeaders = $webhook->getStoreHeaders();
         
-        // Create and return a new WebhookDTO
-        return new WebhookDTO($name, $properties, $required, $storeHeaders);
+        // Create and return a new WebhookDTO (no required fields)
+        return new WebhookDTO($name, $properties, [], $storeHeaders);
     }
 
 

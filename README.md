@@ -423,7 +423,9 @@ Route::webhooks('/api/webhooks', [
 
 ### 🎭 Platform Presets
 
-Laravel Webhook comes with built-in presets for popular platforms:
+> 🚧 **Coming Soon** - Platform presets are currently in development and will be available in a future release.
+
+Laravel Webhook will come with built-in presets for popular platforms:
 
 ```php
 // GitHub - Auto-configures X-Hub-Signature-256
@@ -812,13 +814,15 @@ The MIT License (MIT). Please see [License File](LICENSE.md) for more informatio
 
 ---
 
-## ☕ Support
+## 💖 Support
 
 If this package helps you build amazing webhook integrations, consider supporting the development:
 
 <div align="center">
 
-[![Buy Me A Coffee](https://img.shields.io/badge/Buy%20Me%20A%20Coffee-Support%20Development-yellow.svg?style=for-the-badge&logo=buy-me-a-coffee&logoColor=white)](https://www.buymeacoffee.com/isaacjuwon)
+[![GitHub Sponsors](https://img.shields.io/badge/GitHub%20Sponsors-Support%20Development-pink.svg?style=for-the-badge&logo=github-sponsors&logoColor=white)](https://github.com/sponsors/isaacjuwon)
+
+<iframe src="https://github.com/sponsors/isaacjuwon/button" title="Sponsor isaacjuwon" height="32" width="114" style="border: 0; border-radius: 6px;"></iframe>
 
 **Your support helps maintain and improve this package for the entire Laravel community! 🙏**
 

@@ -2,25 +2,87 @@
 
 namespace Isaacjuwon\LaravelWebhook\Contracts;
 
+use Illuminate\Support\Collection;
+
 interface Webhook
 {
+    /**
+     * Get the webhook name
+     */
     public function getName(): string;
 
+    /**
+     * Get the signing secret
+     */
     public function getSigningSecret(): string;
 
-    public function addProperty(string $name, string|array $type, string $signing_secret = '', array $enum = []): self;
+    /**
+     * Set the signing secret
+     */
+    public function setSigningSecret(string $secret): static;
 
-    public function setRequired(string $name): self;
+    /**
+     * Add a property definition
+     */
+    public function addProperty(string $name, string|array $type, array $options = []): static;
 
-    public function getProperties(): array;
+    /**
+     * Set headers to store
+     */
+    public function storeHeaders(array $headers): static;
 
-    public function getRequired(): array;
+    /**
+     * Set the webhook handler
+     */
+    public function handler(callable|string $handler): static;
 
-    public function set(array $store_headers): self;
+    /**
+     * Get the webhook handler
+     */
+    public function getHandler(): mixed;
 
-    public function getStoreHeaders(): array;
+    /**
+     * Set payload data
+     */
+    public function setPayload(array $payload): static;
 
+    /**
+     * Get payload data
+     */
+    public function getPayload(): Collection;
+
+    /**
+     * Get specific payload value
+     */
+    public function get(string $key, mixed $default = null): mixed;
+
+    /**
+     * Check if payload has a key
+     */
+    public function has(string $key): bool;
+
+    /**
+     * Set headers
+     */
+    public function setHeaders(array $headers): static;
+
+    /**
+     * Get stored headers
+     */
+    public function getHeaders(): Collection;
+
+    /**
+     * Validate the webhook payload
+     */
+    public function validate(): bool;
+
+    /**
+     * Execute the webhook handler
+     */
+    public function execute(): mixed;
+
+    /**
+     * Convert to array representation
+     */
     public function toArray(): array;
-
-    public function execute(array $input): mixed;
 }

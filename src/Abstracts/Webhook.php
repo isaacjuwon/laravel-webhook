@@ -4,8 +4,9 @@ namespace Isaacjuwon\LaravelWebhook\Abstracts;
 
 use Isaacjuwon\LaravelWebhook\Support\WebhookBuilder;
 use Isaacjuwon\LaravelWebhook\Models\Webhook as WebhookModel;
+use Isaacjuwon\LaravelWebhook\Contracts\AbstractWebhook as AbstractWebhookContract;
 
-abstract class Webhook
+abstract class Webhook implements AbstractWebhookContract
 {
     /**
      * The webhook name/identifier.
